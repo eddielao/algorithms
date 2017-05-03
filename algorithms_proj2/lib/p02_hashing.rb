@@ -4,11 +4,17 @@ end
 
 class Array
   def hash
+    each_with_index.inject(0) do |temp, (el, i)|
+      (el.hash + i.hash) ^ temp
+    end
   end
 end
 
 class String
   def hash
+    char_arr = self.chars
+    char_arr.each_index { |i| char_arr[i] = char_arr[i].ord }
+    char_arr.hash
   end
 end
 
@@ -16,6 +22,6 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    to_a.sort_by(&:hash).hash
   end
 end

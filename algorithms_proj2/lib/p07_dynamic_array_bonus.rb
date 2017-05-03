@@ -25,17 +25,21 @@ class StaticArray
 end
 
 class DynamicArray
+  include Enumerable
   attr_reader :count
 
   def initialize(capacity = 8)
     @store = StaticArray.new(capacity)
+    @start = 0
     @count = 0
   end
 
   def [](i)
+    @store[i]
   end
 
   def []=(i, val)
+    @store[i] = val
   end
 
   def capacity
@@ -43,6 +47,8 @@ class DynamicArray
   end
 
   def include?(val)
+    @store.each { |el| return true if el == val }
+    return false
   end
 
   def push(val)
@@ -58,9 +64,11 @@ class DynamicArray
   end
 
   def first
+    @store[@start]
   end
 
   def last
+    @store[(@start + @count - 1) % capacity]
   end
 
   def each

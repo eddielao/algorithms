@@ -10,18 +10,34 @@ class HashMap
   end
 
   def include?(key)
+    @store[key.hash % num_buckets].include?(key)
   end
 
   def set(key, val)
+    resize! if @count >= num_buckets
+
+    if include?(key)
+      @store[key.hash % num_buckets].update(key, val)
+    else
+      @store[key.hash % num_buckets].append(key, val)
+      @count += 1
+    end
   end
 
   def get(key)
+    @store[key.hash % num_buckets].get(key)
   end
 
   def delete(key)
+    removal = @store[key.hash % num_buckets].remove(key)
+    @count -= 1 if removal
+    removal
   end
 
   def each
+    @store.each do |bucket|
+      bucket.each { |link| yield [link.key, link.val] }
+    end
   end
 
   # uncomment when you have Enumerable included

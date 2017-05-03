@@ -1,3 +1,5 @@
+require 'byebug'
+
 class MaxIntSet
   def initialize(max)
     @mis = Array.new(max, false)
@@ -55,11 +57,13 @@ class IntSet
   end
 
   def include?(num)
+
     self[num].each do |el|
       return true if el == num
     end
 
     return false
+
   end
 
   private
@@ -83,18 +87,32 @@ class ResizingIntSet
   end
 
   def insert(num)
+    self[num].push(num) unless include?(num)
+    @count += 1
+    resize! if @count > num_buckets
   end
 
   def remove(num)
+    @store[num].each_index do |i|
+      el = @store[num][i]
+      if el == num
+        @store[num].delete_at(i)
+        @count -= 1
+        return el
+      end
+    end
   end
 
   def include?(num)
+    self[num].each { |el| return true if el == num }
+    return false
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
@@ -102,5 +120,20 @@ class ResizingIntSet
   end
 
   def resize!
+    original = @store.length
+
+    tmp = @store
+
+    @store = Array.new(original * 2) {Array.new}
+    @count = 0
+
+    tmp.each_index do |arr|
+      tmp[arr].each do |el|
+        mod = el % num_buckets
+        @store[mod].push(el)
+        @count += 1
+      end
+    end
+    @store
   end
 end

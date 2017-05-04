@@ -1,6 +1,6 @@
 # Algorithms and Data Structures
 
-This project dives deep into the realm of data structures and algorithms.
+This project dives deep into the realm of data structures and algorithms. Codings are done in Java, JavaScript, and Ruby. The goal is to implement and to give my own take on various data structures and algorithms. Further goal will be to add visualization with a full stack application.
 
 ## Getting Started
 

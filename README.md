@@ -2,13 +2,21 @@
 
 This project dives deep into the realm of data structures and algorithms. Codings are done in Java, JavaScript, and Ruby. The goal is to implement and to give my own take on various data structures and algorithms. Further goal will be to add visualization with a full stack application. This documents my own findings and serves as a living repo for learning the subjects.
 
-## Getting Started
+## How To Test the Codes
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+For codes written in Ruby, after cloning you can run the following commands for RSpec testing.
+```
+$bundle install
+...
+$rspec spec
+```
 
-What things you need to install the software and how to install them
+### Data Structures Covered
+
+Array
+
 
 ```
 Give examples

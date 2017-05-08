@@ -13,14 +13,23 @@ $bundle install
 $rspec spec
 ```
 
-### Data Structures Covered
+### Data Structures
 
-Array
+* Array
 
+* Linked List
 
-```
-Give examples
-```
+* Heap
+
+### Abstract Data Types
+
+* Stack
+
+* Queue
+
+* Priority Queue
+
+* Dictionary / Hashmap
 
 ### Installing
 

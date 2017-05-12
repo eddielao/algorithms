@@ -37,7 +37,7 @@ This section will provide instructions on how to test and run the codes by langu
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+After most common data structures and algorithms have been written. Tests will be written for each language used.
 
 ### Break down into end to end tests
 

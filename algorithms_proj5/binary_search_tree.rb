@@ -13,6 +13,7 @@ class BinarySearchTree
     BinarySearchTree.find!(@root, el)
   end
 
+# BFS requires a queue where DFS uses a stack
   def self.find!(node, el)
     return nil if node.nil?
     return node if node.value == el
@@ -74,7 +75,7 @@ class BinarySearchTree
   def depth
     return 0 if self.nil?
     1 + [self.left.depth + self.right.depth].max
-  end 
+  end
 end
 
 if __FILE__ == $PROGRAM_NAME

@@ -1,4 +1,5 @@
 # *NB*: what do you need to require here? This is a good chance to review a little Ruby require syntax.
+require 'binary_search_tree'
 
 def kth_largest(bst, k)
 end

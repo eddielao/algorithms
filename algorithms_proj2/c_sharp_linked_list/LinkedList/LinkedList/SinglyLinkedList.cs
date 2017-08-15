@@ -85,6 +85,11 @@ namespace SinglyLinkedList
             return n;
         }
 
+        public Node InsertAt(int index)
+        {
+
+        }
+
         public Boolean IsEmpty()
         {
             return head == null ? true : false;
